@@ -31,15 +31,6 @@ for (let i = 0; i < NUMBER_OF_CARS; i++) {
     traffic.push(new Car(road.getLaneCentre(LANE_NUMBER), Y_COORD, 30, 50, "DUMMY", 2))
 }
 console.log(traffic)
-//const traffic = [
-//    new Car(road.getLaneCentre(0), -300, 30, 50, "DUMMY", 2),
-//    new Car(road.getLaneCentre(1), -100, 30, 50, "DUMMY", 2),
-//    new Car(road.getLaneCentre(2), -300, 30, 50, "DUMMY", 2),
-//    new Car(road.getLaneCentre(0), -500, 30, 50, "DUMMY", 2),
-//    new Car(road.getLaneCentre(1), -500, 30, 50, "DUMMY", 2),
-//    new Car(road.getLaneCentre(2), -700, 30, 50, "DUMMY", 2),
-//    new Car(road.getLaneCentre(0), -700, 30, 50, "DUMMY", 2)
-//]
 
 animate()
 
