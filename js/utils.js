@@ -40,3 +40,15 @@ function polyIntersect(p1, p2) {
     }
     return false
 }
+
+function sigmoid(x) {
+    return 1 / (1 + Math.exp(-x))
+}
+
+function getRGBA(value) {
+    const alpha = Math.abs(value)
+    const R = value < 0 ? 0 : 255
+    const G = R
+    const B = value > 0 ? 0 : 255
+    return "rgba("+R+","+G+","+B+","+alpha+")"
+}
