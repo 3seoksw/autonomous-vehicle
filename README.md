@@ -10,8 +10,8 @@
 <h3 id="intro">Introduction</h3>
 
 <h3 id="showcase">Showcase</h3>
+<img src="/showcase/self-driving-showcase.gif">
 ![self-driving-showcase](https://user-images.githubusercontent.com/97219959/215432211-034a4d56-7c3e-493e-a782-75308dd9b278.gif)
-![car]("/showcase/self-driving-showcase.gif")
 
 
 <h3 id="algorithms">Algorithms</h3>
