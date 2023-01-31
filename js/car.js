@@ -17,6 +17,9 @@ class Car {
         this.angle = 0
         this.damaged = false
 
+        this.distance = 0
+        this.score = 0
+
         this.useBrain = controlType == "AI"
 
         if (controlType != "DUMMY") {
@@ -124,6 +127,7 @@ class Car {
         }
         this.x -= Math.sin(this.angle) * this.speed
         this.y -= Math.cos(this.angle) * this.speed
+        this.distance += Math.hypot(this.x, this.y)
 
     }
 

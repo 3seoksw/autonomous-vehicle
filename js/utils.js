@@ -19,7 +19,7 @@ function getIntersection(a, b, c, d) {
                 offset: t
             }
         }
-    }
+  }
 }
 
 /** p1: polygons of the car, p2: polygons of the road */
@@ -51,4 +51,26 @@ function getRGBA(value) {
     const G = R
     const B = value > 0 ? 0 : 255
     return "rgba("+R+","+G+","+B+","+alpha+")"
+}
+
+function findLeading(cars) {
+    const WEIGHT = 0.7
+    const maxY = cars.find(car => car.y == Math.max(...cars.map(car => car.y))).y
+    cars.forEach(car => car.score += car.y / maxY * WEIGHT)
+}
+
+function findShortest(cars) {
+    const WEIGHT = 0.3
+    const longestDist = cars.find(car => car.distance == Math.max(...cars.map(car => car.distance))).distance
+    cars.forEach(car => car.score += car.distance / longestDist * WEIGHT)
+}
+
+function fitnessFunc(cars) {
+    findLeading(cars)
+    findShortest(cars)
+
+    const car = cars.find(car => car.score == Math.max(...cars.map(car => car.score)))
+    console.log(car)
+    return car
+    //leadingCar = cars.find(car => car.y == Math.min(...cars.map(car => car.y)))
 }

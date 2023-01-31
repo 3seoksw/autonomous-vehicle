@@ -8,7 +8,7 @@ const networkCtx = networkCanvas.getContext("2d");
 
 const road = new Road(carCanvas.width / 2, carCanvas.width * 0.9)
 
-const N = 1
+const N = 100
 const cars = generateCars(N)
 
 let leadingCar = cars[0]
@@ -30,7 +30,6 @@ for (let i = 0; i < NUMBER_OF_CARS; i++) {
     const Y_COORD = i * (-200) - 100
     traffic.push(new Car(road.getLaneCentre(LANE_NUMBER), Y_COORD, 30, 50, "DUMMY", 2))
 }
-console.log(traffic)
 
 animate()
 
@@ -53,7 +52,9 @@ function animate(time) {
         cars[i].update(road.borders, traffic)
     }
 
+    // TODO: find an optimal fitness function
     leadingCar = cars.find(car => car.y == Math.min(...cars.map(car => car.y)))
+    //leadingCar = fitnessFunc(cars)
 
     carCanvas.height = window.innerHeight
     networkCanvas.height = window.innerHeight
