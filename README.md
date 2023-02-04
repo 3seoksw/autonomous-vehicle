@@ -14,7 +14,7 @@ Given a road and a traffic, objective of the car is to not crash to the traffic 
 
 <h3 id="intro">Introduction</h3>
 In order to train a car how to drive itself, a neural network is required. The network is consists of three layers which are input layer, hidden layer 1, and output layer. <br>
-<img src="/imgs/nn.svg">
+<img src="/imgs/nn.png">
 
 By calculating the randomized parameters which are weights and biases for each nodes, output layer will return an action either move forward, left, right, or reverse. Repeating the following procedure and remembering the previous result will eventually be trained.
 
