@@ -53,8 +53,8 @@ function animate(time) {
     }
 
     // TODO: find an optimal fitness function
-    leadingCar = cars.find(car => car.y == Math.min(...cars.map(car => car.y)))
-    //leadingCar = fitnessFunc(cars)
+    //leadingCar = cars.find(car => car.y == Math.min(...cars.map(car => car.y)))
+    leadingCar = fitnessFunc(cars)
 
     carCanvas.height = window.innerHeight
     networkCanvas.height = window.innerHeight
