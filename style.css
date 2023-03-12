@@ -28,6 +28,14 @@ button:hover {
     background: lightgray;
 }
 
+#carCanvasT {
+    background: lightgray;
+}
+
 #networkCanvas {
+    background: black;
+}
+
+#networkCanvasT {
     background: black;
 }

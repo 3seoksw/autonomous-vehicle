@@ -1,12 +1,23 @@
+// Road Canvas
 const carCanvas = document.getElementById("carCanvas")
 carCanvas.width = 200
+const carCanvasT = document.getElementById("carCanvasT")
+carCanvasT.width = 400
+
+// Network Canvas
 const networkCanvas = document.getElementById("networkCanvas")
 networkCanvas.width = 300
+const networkCanvasT = document.getElementById("networkCanvasT")
+networkCanvasT.width = 300
 
+// Contexts
 const carCtx = carCanvas.getContext("2d");
 const networkCtx = networkCanvas.getContext("2d");
+const carCtxT = carCanvasT.getContext("2d");
+const networkCtxT = networkCanvasT.getContext("2d");
 
 const road = new Road(carCanvas.width / 2, carCanvas.width * 0.9)
+const roadT = new Road(carCanvasT.width / 2, carCanvasT.width * 0.9, 5)
 
 const N = 100
 const cars = generateCars(N)
@@ -58,12 +69,18 @@ function animate(time) {
 
     carCanvas.height = window.innerHeight
     networkCanvas.height = window.innerHeight
+    carCanvasT.height = window.innerHeight
+    networkCanvasT.height = window.innerHeight
 
     carCtx.save()
     carCtx.translate(0, -leadingCar.y + carCanvas.height * 0.7)
+    carCtxT.save()
+    carCtxT.translate(0, 0) 
 
     road.draw(carCtx)
+    roadT.draw(carCtxT)
 
+    // drawing cars
     for (let i = 0; i < traffic.length; i++) {
         traffic[i].draw(carCtx, "red")
     }
@@ -76,6 +93,7 @@ function animate(time) {
     leadingCar.draw(carCtx, "blue", true)
 
     carCtx.restore()
+    carCtxT.restore()
 
     networkCtx.lineDashOffset = -time / 50
     Visualizer.drawNetwork(networkCtx, leadingCar.brain)
@@ -87,6 +105,16 @@ function save() {
     localStorage.setItem("optimal", JSON.stringify(leadingCar.brain))
 }
 
+// TODO
+function mutate() {
+    localStorage.setItem("", JSON.stringify())
+}
+
 function discard() {
     localStorage.removeItem("optimal")
+}
+
+// TODO
+function pass() {
+    localStorage.setItem("", JSON.stringify())
 }
