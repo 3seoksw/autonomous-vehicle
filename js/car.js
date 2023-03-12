@@ -29,7 +29,7 @@ class Car {
         this.controls = new Controls(controlType)
     }
 
-    update(roadBorders, traffic) {
+    update(roadBorders, traffic, lanes) {
         if (!this.damaged) {
             this.#move()
             this.polygon = this.#createPolygon()
@@ -37,7 +37,7 @@ class Car {
         }
 
         if (this.sensor) {
-            this.sensor.update(roadBorders, traffic)
+            this.sensor.update(roadBorders, traffic, lanes)
             const offsets = this.sensor.readings.map((s) => s == null ? 0 : 1 - s.offset)
             const outputs = NeuralNetwork.feedForward(offsets, this.brain)
 

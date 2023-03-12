@@ -7,6 +7,8 @@ class Sensor {
 
         this.rays = []
         this.readings = []
+
+        this.front = []
     }
 
     #castRays() {
@@ -68,13 +70,53 @@ class Sensor {
         } // TODO: Try to understand the above code
     }
 
-    update(roadBorders, traffic) {
+    #readFront() {
+        this.front = []
+
+        const rad = Math.hypot(this.car.width, this.car.height) / 2
+        const theta = Math.atan2(this.car.width, this.car.height)
+
+        const start = [
+            this.car.x - Math.sin(this.car.angle + theta) * rad,
+            this.car.y - Math.cos(this.car.angle + theta)* rad
+        ]
+
+        const end = [
+            this.car.x - Math.sin(this.car.angle - theta) * rad,
+            this.car.y - Math.cos(this.car.angle - theta)* rad
+        ]
+
+        this.front = [start, end]
+    }
+
+    #detectLanes(lanes) {
+        let violates = []
+
+        for (let i = 0; i < lanes.length; i++) {
+            const violate = getIntersection(
+                this.front[0],
+                this.front[1],
+                lanes[i][0],
+                lanes[i][1]
+            )
+
+            if (violate) {
+                violates.push(violate)
+            }
+        }
+    }
+
+    update(roadBorders, traffic, lanes = 3) {
         this.#castRays()
         this.readings = []
+        this.#readFront()
+        this.detecting = []
 
         for (let i = 0; i < this.rays.length; i++) {
             this.readings.push(this.#getReading(this.rays[i], roadBorders, traffic))
         }
+
+        this.detecting.push(this.#detectLanes(lanes))
     }
 
     draw(ctx) {
@@ -98,5 +140,19 @@ class Sensor {
             ctx.lineTo(end.x, end.y)
             ctx.stroke()
         }
+            
+        // Front Sensor
+        ctx.beginPath()
+        ctx.lineWidth = 3
+        ctx.strokeStyle = "red"
+        ctx.moveTo(this.front[0][0], this.front[0][1])
+        ctx.lineTo(this.front[1][0], this.front[1][1])
+        ctx.stroke()
+
+        // Violating Lane Point
+        ctx.beginPath()
+        ctx.fillStyle = "black"
+        ctx.fillRect(this.detecting[0], this.detecting[1], 0, 2 * Math.PI)
+        ctx.fill()
     }
 }

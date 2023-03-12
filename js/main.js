@@ -60,7 +60,7 @@ function animate(time) {
     }
 
     for (let i = 0; i < cars.length; i++) {
-        cars[i].update(road.borders, traffic)
+        cars[i].update(road.borders, traffic, road.lanes)
     }
 
     // TODO: find an optimal fitness function

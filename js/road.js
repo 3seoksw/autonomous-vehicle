@@ -19,6 +19,8 @@ class Road {
             [topLeft, bottomLeft],
             [topRight, bottomRight]
         ]
+
+        this.lanes = []
     }
 
     getLaneCentre(laneIndex) {
@@ -32,6 +34,12 @@ class Road {
 
         for (let i = 1; i <= this.laneCount - 1; i++) {
             const x = lerp(this.left, this.right, i / this.laneCount)
+            if (!this.lanes.includes(x)) {
+                this.lanes.push([
+                    [x, this.top],
+                    [x, this.bottom]
+                ])
+            }
 
             ctx.setLineDash([20, 20])
             ctx.beginPath()
