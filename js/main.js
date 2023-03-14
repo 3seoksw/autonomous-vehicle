@@ -20,7 +20,7 @@ const road = new Road(carCanvas.width / 2, carCanvas.width * 0.9)
 const roadT = new Road(carCanvasT.width / 2, carCanvasT.width * 0.9, 5)
 console.log(road.lanes)
 
-const N = 1
+const N = 100
 const cars = generateCars(N)
 
 let leadingCar = cars[0]

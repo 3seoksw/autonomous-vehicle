@@ -40,11 +40,11 @@ class Car {
         if (this.sensor) {
             this.sensor.update(roadBorders, traffic, lanes)
             const offsets = this.sensor.readings.map((s) => s == null ? 0 : 1 - s.offset)
-            const detection = 0
-            if (this.sensor.detection) {
-                //detection = this.sensor.detecting[0].map((e) => e == null ? 0 : 2 * e - 1)
+            let detection = 0
+            if (Object.keys(this.sensor.detecting).length !== 0) {
+                detection = this.sensor.detecting.offset
             }
-            console.log(detection)
+            offsets.push(detection)
             const outputs = NeuralNetwork.feedForward(offsets, this.brain)
 
             if (this.useBrain) {
