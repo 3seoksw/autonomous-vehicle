@@ -16,6 +16,7 @@ class Car {
         this.friction = FRICTION
         this.angle = 0
         this.damaged = false
+        this.onLane = false
 
         this.distance = 0
         this.score = 0
