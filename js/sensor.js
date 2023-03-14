@@ -111,7 +111,7 @@ class Sensor {
         this.#castRays()
         this.readings = []
         this.#readFront()
-        this.detecting = []
+        this.detecting = {}
 
         for (let i = 0; i < this.rays.length; i++) {
             this.readings.push(this.#getReading(this.rays[i], roadBorders, traffic))
@@ -153,6 +153,6 @@ class Sensor {
         // Violating Lane Point
         ctx.fillStyle = "red"
         ctx.fillRect(this.detecting.x, this.detecting.y, 6, 6)
-        ctx.fill()
+            ctx.fill()
     }
 }
