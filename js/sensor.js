@@ -67,7 +67,7 @@ class Sensor {
             const offsets = touches.map(e => e.offset) // array of "touches.offset"
             const minOffset = Math.min(...offsets)
             return touches.find(e => e.offset == minOffset)
-        } // TODO: Try to understand the above code
+        } 
     }
 
     #readFront() {
@@ -76,15 +76,15 @@ class Sensor {
         const rad = Math.hypot(this.car.width, this.car.height) / 2
         const theta = Math.atan2(this.car.width, this.car.height)
 
-        const start = [
-            this.car.x - Math.sin(this.car.angle + theta) * rad,
-            this.car.y - Math.cos(this.car.angle + theta)* rad
-        ]
+        const start = {
+            x: this.car.x - Math.sin(this.car.angle + theta) * rad,
+            y: this.car.y - Math.cos(this.car.angle + theta)* rad
+        }
 
-        const end = [
-            this.car.x - Math.sin(this.car.angle - theta) * rad,
-            this.car.y - Math.cos(this.car.angle - theta)* rad
-        ]
+        const end = {
+            x: this.car.x - Math.sin(this.car.angle - theta) * rad,
+            y: this.car.y - Math.cos(this.car.angle - theta)* rad
+        }
 
         this.front = [start, end]
     }
@@ -100,10 +100,11 @@ class Sensor {
                 lanes[i][1]
             )
 
-            if (violate) {
+            if (violate && !violates.includes(violate)) {
                 violates.push(violate)
             }
         }
+        return violates
     }
 
     update(roadBorders, traffic, lanes = 3) {
@@ -116,7 +117,9 @@ class Sensor {
             this.readings.push(this.#getReading(this.rays[i], roadBorders, traffic))
         }
 
-        this.detecting.push(this.#detectLanes(lanes))
+        //this.detecting.push(this.#detectLanes(lanes))
+        this.detecting = this.#detectLanes(lanes) 
+        //console.log(this.detecting)
     }
 
     draw(ctx) {
@@ -144,15 +147,16 @@ class Sensor {
         // Front Sensor
         ctx.beginPath()
         ctx.lineWidth = 3
-        ctx.strokeStyle = "red"
-        ctx.moveTo(this.front[0][0], this.front[0][1])
-        ctx.lineTo(this.front[1][0], this.front[1][1])
+        ctx.strokeStyle = "green"
+        ctx.moveTo(this.front[0].x, this.front[0].y)
+        ctx.lineTo(this.front[1].x, this.front[1].y)
         ctx.stroke()
 
         // Violating Lane Point
-        ctx.beginPath()
-        ctx.fillStyle = "black"
-        ctx.fillRect(this.detecting[0], this.detecting[1], 0, 2 * Math.PI)
-        ctx.fill()
+        if (this.detecting[0]) {
+            ctx.fillStyle = "red"
+            ctx.fillRect(this.detecting[0].x, this.detecting[0].y, 6, 6)
+            ctx.fill()
+        }
     }
 }
