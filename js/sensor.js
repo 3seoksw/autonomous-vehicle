@@ -117,9 +117,7 @@ class Sensor {
             this.readings.push(this.#getReading(this.rays[i], roadBorders, traffic))
         }
 
-        //this.detecting.push(this.#detectLanes(lanes))
         this.detecting = this.#detectLanes(lanes) 
-        //console.log(this.detecting)
     }
 
     draw(ctx) {
