@@ -16,7 +16,6 @@ class Car {
         this.friction = FRICTION
         this.angle = 0
         this.damaged = false
-        this.onLane = false
 
         this.distance = 0
         this.score = 0
@@ -25,7 +24,7 @@ class Car {
 
         if (controlType != "DUMMY") {
             this.sensor = new Sensor(this)
-            this.brain = new NeuralNetwork([this.sensor.rayCount + 1, 7, 4])
+            this.brain = new NeuralNetwork([this.sensor.rayCount, 6, 4])
         }
         this.controls = new Controls(controlType)
     }
@@ -38,13 +37,8 @@ class Car {
         }
 
         if (this.sensor) {
-            this.sensor.update(roadBorders, traffic, lanes)
+            this.sensor.update(roadBorders, traffic)
             const offsets = this.sensor.readings.map((s) => s == null ? 0 : 1 - s.offset)
-            let detection = 0
-            if (Object.keys(this.sensor.detecting).length !== 0) {
-                detection = 2 * this.sensor.detecting.offset - 1
-            }
-            offsets.push(detection)
             const outputs = NeuralNetwork.feedForward(offsets, this.brain)
 
             if (this.useBrain) {
