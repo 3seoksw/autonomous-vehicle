@@ -90,7 +90,7 @@ class Sensor {
     }
 
     #detectLanes(lanes) {
-        let violates = []
+        let violates = {}
 
         for (let i = 0; i < lanes.length; i++) {
             const violate = getIntersection(
@@ -100,8 +100,8 @@ class Sensor {
                 lanes[i][1]
             )
 
-            if (violate && !violates.includes(violate)) {
-                violates.push(violate)
+            if (violate) {
+                violates = violate
             }
         }
         return violates
@@ -111,7 +111,7 @@ class Sensor {
         this.#castRays()
         this.readings = []
         this.#readFront()
-        this.detecting = []
+        this.detecting = {}
 
         for (let i = 0; i < this.rays.length; i++) {
             this.readings.push(this.#getReading(this.rays[i], roadBorders, traffic))
@@ -151,10 +151,8 @@ class Sensor {
         ctx.stroke()
 
         // Violating Lane Point
-        if (this.detecting[0]) {
-            ctx.fillStyle = "red"
-            ctx.fillRect(this.detecting[0].x, this.detecting[0].y, 6, 6)
+        ctx.fillStyle = "red"
+        ctx.fillRect(this.detecting.x, this.detecting.y, 6, 6)
             ctx.fill()
-        }
     }
 }
