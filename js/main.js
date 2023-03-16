@@ -33,12 +33,13 @@ let leadingCarT = carsT[0]
 if (localStorage.getItem("optimal")) {
     for (let i = 0; i < cars.length; i++) {
         cars[i].brain = JSON.parse(localStorage.getItem("optimal"))
+        carsT[i].brain = JSON.parse(localStorage.getItem("optimal"))
 
         if (i != 0) {
             NeuralNetwork.mutate(cars[i].brain, 0.2)
+            NeuralNetwork.mutate(carsT[i].brain, 0.2)
         }
     }
-    // TODO: carsT
 }
 
 const NUMBER_OF_CARS = 100
