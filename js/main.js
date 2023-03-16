@@ -12,7 +12,7 @@ const networkCtx = networkCanvas.getContext("2d");
 
 const road = new Road(carCanvas.width / 2, carCanvas.width * 0.9)
 
-const N = 1
+const N = 100
 const cars = generateCars(N)
 
 let leadingCar = cars[0]
@@ -53,7 +53,7 @@ function animate(time) {
     }
 
     for (let i = 0; i < cars.length; i++) {
-        cars[i].update(road.borders, traffic, road.lanes)
+        cars[i].update(road.borders, traffic)
     }
 
     // TODO: find an optimal fitness function
