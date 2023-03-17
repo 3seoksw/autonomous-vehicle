@@ -43,6 +43,9 @@ class Car {
             let detection = 0
             if (Object.keys(this.sensor.detecting).length !== 0) {
                 detection = 2 * this.sensor.detecting.offset - 1
+                if (detection < 0) {
+                    detection = -detection
+                }
             }
             offsets.push(detection)
             const outputs = NeuralNetwork.feedForward(offsets, this.brain)
