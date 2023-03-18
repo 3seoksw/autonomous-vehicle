@@ -47,6 +47,7 @@ class Car {
                     detection = -detection
                 }
             }
+            console.log(detection)
             offsets.push(detection)
             const outputs = NeuralNetwork.feedForward(offsets, this.brain)
 

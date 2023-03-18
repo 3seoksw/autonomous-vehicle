@@ -104,7 +104,6 @@ class Sensor {
                 violates = violate
             }
         }
-        console.log(violates.offset)
         return violates
     }
 
