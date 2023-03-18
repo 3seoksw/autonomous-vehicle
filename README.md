@@ -63,7 +63,7 @@ The most import job of this project to design and build a car. Just like any oth
 <h3 id="sensor">Sensor</h3>
 Autonomous vehicle, which are not a dummy cars, is equipped with ray sensor to detect obstacles like road borders and traffic. <br>
 
-<img src="/imgs/sensos.png">
+<img src="/imgs/sensors.png">
 
 When sensor detects obstacle, it calculates the distance (offset) between the sensor and the detected obstacle then show it with black colour.
 
