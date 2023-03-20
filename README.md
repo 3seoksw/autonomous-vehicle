@@ -32,7 +32,7 @@ Next obstacle environment is a traffic. Since road is always full of other cars,
 It will be sufficient enough to arrange multiple cars on a road on random lanes. Although cars of the traffic are dummy cars, traffic will be implemented with a car class. <br>
 
 <h3 id="car">Car</h3>
-The most import job of this project to design and build a car. Just like any other objects, car class will be used. Its key properties are as follows:
+The most important job of this project to design and build a car. Just like any other objects, car class will be used. Its key properties are as follows:
 <ul>
     <li>Coordinates</li>
         <p>where the car is currently at</p>
@@ -61,11 +61,11 @@ The most import job of this project to design and build a car. Just like any oth
 </ul>
 
 <h3 id="sensor">Sensor</h3>
-Autonomous vehicle, which are not a dummy cars, is equipped with ray sensor to detect obstacles like road borders and traffic. <br>
+Autonomous vehicles, which are not dummy cars, are equipped with ray sensor to detect obstacles like road borders and traffic. <br>
 
 <img src="/imgs/sensors.png">
 
-When sensor detects obstacle, it calculates the distance (offset) between the sensor and the detected obstacle then show it with black colour.
+When the ray sensor detects an obstacle, it calculates the distance (offset) between the sensor and the detected obstacle then show it with black colour.
 
 
 <h3 id="nn">Neural Network</h3>
