@@ -40,9 +40,7 @@ $$ P_C(x_a + (x_b - x_a) \times t, y_a + (y_b - y_a) \times t) $$
 
 #### Get Intersection
 Using [linear interpolation](#linear-interpolation), an intersection of the given two points can be found.
-\begin{equation}
-    x_b - x_a)t + (x_a - x_c) = (x_d - x_c)u
-\end{equation}
+
 $$ (x_b - x_a)t + (x_a - x_c) = (x_d - x_c)u \$$
 $$ (y_b - y_a)t + (y_a - y_c) = (y_d - y_c)u $$
 
