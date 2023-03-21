@@ -142,7 +142,7 @@ function animateT(time) {
     }
 
     for (let i = 0; i < carsT.length; i++) {
-        carsT[i].update(roadT.borders, trafficT, roadT.laneCount, true)
+        carsT[i].update(roadT.borders, trafficT, roadT.lanes, true)
     }
 
     carCanvasT.height = window.innerHeight
@@ -177,16 +177,11 @@ function save() {
     localStorage.setItem("optimal", JSON.stringify(leadingCar.brain))
 }
 
-// TODO
-function mutate() {
-    localStorage.setItem("", JSON.stringify())
-}
 
 function discard() {
     localStorage.removeItem("optimal")
 }
 
-// TODO
 function pass() {
     if (transformerMode) {
         transformerMode = false
@@ -198,5 +193,4 @@ function pass() {
         console.log("T Mode")
         animateT()
     }
-    localStorage.setItem("", JSON.stringify())
 }
