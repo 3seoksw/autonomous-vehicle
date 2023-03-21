@@ -62,9 +62,10 @@ $$(y_b - y_a)(x_d-x_c)t + (y_a - y_c)(x_d-x_c) = (y_d - y_c)(x_b - x_a)t + (y_d 
 <br>
 
 By solving the equation for $t$:
+
 $$
 \begin{align*}
-\{ (y_b - y_a)(x_d-x_c) - (y_d - y_c)(x_b - x_a)\}t = (y_d - y_c)(x_a - x_c) - (y_a - y_c)(x_d-x_c) \\
+\{(y_b - y_a)(x_d-x_c) - (y_d - y_c)(x_b - x_a)\}t = (y_d - y_c)(x_a - x_c) - (y_a - y_c)(x_d-x_c) \\
 t = \frac{(y_d - y_c)(x_a - x_c) - (y_a - y_c)(x_d-x_c)}{(y_b - y_a)(x_d-x_c) - (y_d - y_c)(x_b - x_a)} \cdots \space \cdots \space 5 
 \end{align*}
 $$
