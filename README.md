@@ -1,7 +1,7 @@
 # Self-Driving Car
 
 ### Abstract 
-As the growth of a self-driving car (autonomous vehicle) industry, building an agent which can eventually be be able to drive itself will stimulate the understanding of basic autonomous vehicle and machine learning concepts.  
+As the growth of a self-driving car (autonomous vehicle) industry, building an agent which can eventually to be able to drive itself will stimulate the understanding of basic autonomous vehicle and machine learning concepts.  
 
 In this project, autonomous vehicle will be built on 2D space using neural network. Its objective is not to crash towards traffic, and road borders. Then transformer will be used to make the agent adapt to a new environment or to a new restriction. These three parts' (*i.e.* 1; building autonomous vehicle, 2; using transformer to adapt to a new environment, 3; using transformer to adapt to a new restriction) details will be given and be discussed thoroughly in other branches of this repository.  
 
@@ -22,6 +22,10 @@ By calculating the randomized parameters which are weights and biases for each n
 
 ### Showcase 
 ![showcase gif](/showcase/self-driving-showcase.gif)
+
+<img src="/showcase/DL_test1.gif" width="200%">
+<img src="/showcase/DL_test2.gif" width="200%">
+
 
 ### Algorithms 
 Input layer will be given an offset detected by a ray sensor inferring a distance between the ray sensor and a border whether it's a car or a road.  
