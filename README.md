@@ -4,8 +4,6 @@ In this branch, using all the features of the autonomous vehicle, we will train 
 
 ### Test Case 1
 <img src="/showcase/DL_test1.gif" width="200%">
-![DL_test1](showcase/DL_test1.gif|width=200%)
 
 ### Test Case 2
 <img src="/showcase/DL_test2.gif" width="200%">
-![DL_test2](showcase/DL_test2.gif){: width="200%" height = "200%"}
