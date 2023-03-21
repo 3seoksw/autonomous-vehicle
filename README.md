@@ -45,7 +45,24 @@ $$ P_C(x_a + (x_b - x_a) \times t, y_a + (y_b - y_a) \times t) $$
 #### Get Intersection
 Using [linear interpolation](#linear-interpolation), an intersection of the given two points can be found.
 
-$$ (x_b - x_a)t + (x_a - x_c) = (x_d - x_c)u $$
-$$ (y_b - y_a)t + (y_a - y_c) = (y_d - y_c)u $$
+$$ (x_b - x_a)t + (x_a - x_c) = (x_d - x_c)u \cdots \space \cdots \space 1$$
+$$ (y_b - y_a)t + (y_a - y_c) = (y_d - y_c)u \cdots \space \cdots \space 2$$
+<br>
 
-Every nodes are fully connected and have its' own weights and biases. These parameters are initially randomized then will be modified by the previous generation. Every generation, the neural network will be mutated by adjusting the weights and biases resulting the car to be trained.
+By multiplying $(x_d-x_c)$ to equation 1, $\text{Equation 2} \times {(x_d-x_c)}$,
+$$ (y_b - y_a)(x_d-x_c)t + (y_a - y_c)(x_d-x_c) = (y_d - y_c)(x_d-x_c)u \cdots \space \cdots \space 3$$
+<br>
+  
+From $\text{equation 1}$, since $(x_d-x_c)u = (x_b - x_a)t + (x_a - x_c)$, *RHS* of the $\text{equation 3}$ can be changed as follows:
+$$ (y_b - y_a)(x_d-x_c)t + (y_a - y_c)(x_d-x_c) = (y_d - y_c)(x_b - x_a)t + (y_d - y_c)(x_a - x_c) \cdots \space \cdots \space 4 $$
+<br>
+
+By solving the equation for $t$:
+$$ \{ (y_b - y_a)(x_d-x_c) - (y_d - y_c)(x_b - x_a)\}t = (y_d - y_c)(x_a - x_c) - (y_a - y_c)(x_d-x_c) $$
+$$ t = \frac{(y_d - y_c)(x_a - x_c) - (y_a - y_c)(x_d-x_c)}{(y_b - y_a)(x_d-x_c) - (y_d - y_c)(x_b - x_a)} \cdots \space \cdots \space 5 $$
+<br>
+
+By using $\text{equation 5}$, 
+
+
+<!--Every nodes are fully connected and have its' own weights and biases. These parameters are initially randomized then will be modified by the previous generation. Every generation, the neural network will be mutated by adjusting the weights and biases resulting the car to be trained.-->
