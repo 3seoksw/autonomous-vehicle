@@ -142,17 +142,19 @@ class Sensor {
             ctx.stroke()
         }
             
-        // Front Sensor
-        ctx.beginPath()
-        ctx.lineWidth = 3
-        ctx.strokeStyle = "green"
-        ctx.moveTo(this.front[0].x, this.front[0].y)
-        ctx.lineTo(this.front[1].x, this.front[1].y)
-        ctx.stroke()
+        if (this.car.laneDetection) {
+            // Front Sensor
+            ctx.beginPath()
+            ctx.lineWidth = 3
+            ctx.strokeStyle = "green"
+            ctx.moveTo(this.front[0].x, this.front[0].y)
+            ctx.lineTo(this.front[1].x, this.front[1].y)
+            ctx.stroke()
 
-        // Violating Lane Point
-        ctx.fillStyle = "red"
-        ctx.fillRect(this.detecting.x, this.detecting.y, 6, 6)
+            // Violating Lane Point
+            ctx.fillStyle = "red"
+            ctx.fillRect(this.detecting.x, this.detecting.y, 6, 6)
             ctx.fill()
+        }
     }
 }
