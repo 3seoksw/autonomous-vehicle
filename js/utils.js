@@ -4,13 +4,13 @@ function lerp(A, B, t) {
 
 /** Between two lines, check if there's an intersection */
 function getIntersection(a, b, c, d) {
-    const tTop = (d.x - c.x) * (a.y - c.y) - (d.y - c.y) * (a.x - c.x)
-    const uTop = (c.y - a.y) * (a.x - b.x) - (c.x - a.x) * (a.y - b.y)
-    const bottom = (d.y - c.y) * (b.x - a.x) - (d.x - c.x) * (b.y - a.y)
+    const tNominator = (d.y - c.y) * (a.x - c.x) - (a.y - c.y) * (d.x - c.x)
+    const uNominator = (c.y - a.y) * (a.x - b.x) - (a.y - b.y) * (c.x - a.x)
+    const denominator = (b.y - a.y) * (d.x - c.x) - (d.y - c.y) * (b.x - a.x)
 
     if (bottom != 0) {
-        const t = tTop / bottom
-        const u = uTop / bottom
+        const t = tNominator / denominator
+        const u = uNominator / denominator
 
         if (t >= 0 && t <= 1 && u >= 0 && u <= 1) {
             return {
