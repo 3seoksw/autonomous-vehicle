@@ -75,7 +75,7 @@ t &= \frac{(y_d - y_c)(x_a - x_c) - (y_a - y_c)(x_d-x_c)}{(y_b - y_a)(x_d-x_c) -
 $$
 <br>
 
-By using $\text{equation 5}$, 
+By using $\text{equation 5}$, we can get $t$, noting denominator of $t$ cannot be 0. $t$ can be expressed as an offset between the given two points with a range of $[0, 1]$. Steps above are coded in `/js/utils.js`.
 
 
 <!--Every nodes are fully connected and have its' own weights and biases. These parameters are initially randomized then will be modified by the previous generation. Every generation, the neural network will be mutated by adjusting the weights and biases resulting the car to be trained.-->
