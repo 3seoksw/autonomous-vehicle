@@ -54,7 +54,7 @@ $$
 <br>
 
 By multiplying $(x_d-x_c)$ to equation 1, $\text{Equation 2} \times {(x_d-x_c)}$,
-$$ (y_b - y_a)(x_d-x_c)t + (y_a - y_c)(x_d-x_c) = (y_d - y_c)(x_d-x_c)u \cdots \space \cdots \space 3$$
+$$(y_b - y_a)(x_d-x_c)t + (y_a - y_c)(x_d-x_c) = (y_d - y_c)(x_d-x_c)u \cdots \space \cdots \space 3$$
 <br>
   
 From $\text{equation 1}$, since $(x_d-x_c)u = (x_b - x_a)t + (x_a - x_c)$, *RHS* of the $\text{equation 3}$ can be changed as follows:
