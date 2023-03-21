@@ -46,10 +46,10 @@ $$ P_C(x_a + (x_b - x_a) \times t, y_a + (y_b - y_a) \times t) $$
 Using [linear interpolation](#linear-interpolation), an intersection of the given two points can be found.
 
 $$
-\begin{align*}
-(x_b - x_a)t + (x_a - x_c) = (x_d - x_c)u \cdots \space \cdots \space 1 \\
-(y_b - y_a)t + (y_a - y_c) = (y_d - y_c)u \cdots \space \cdots \space 2 
-\end{align*}
+\begin{flalign*}
+(x_b - x_a)t + (x_a - x_c) &= (x_d - x_c)u \cdots \space \cdots \space 1 \\
+(y_b - y_a)t + (y_a - y_c) &= (y_d - y_c)u \cdots \space \cdots \space 2 
+\end{flalign*}
 $$
 <br>
 
@@ -61,7 +61,7 @@ From $\text{equation 1}$, since $(x_d-x_c)u = (x_b - x_a)t + (x_a - x_c)$, *RHS*
 $$(y_b - y_a)(x_d-x_c)t + (y_a - y_c)(x_d-x_c) = (y_d - y_c)(x_b - x_a)t + (y_d - y_c)(x_a - x_c) \cdots \space \cdots \space 4$$
 <br>
 
-By solving the equation for $t$:
+By solving the equation for $t$, we can get $t$ as follows:
 
 $$
 \begin{flalign*}
