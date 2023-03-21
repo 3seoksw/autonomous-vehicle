@@ -21,9 +21,13 @@ In order to train a car how to drive itself, a neural network is required. The n
 By calculating the randomized parameters which are weights and biases for each nodes, output layer will return an action either move forward, left, right, or reverse. Repeating the following procedure and remembering the previous result will eventually be trained.
 
 ### Showcase 
+#### Testing Autonomous Driving
 ![showcase gif](/showcase/self-driving-showcase.gif)
 
+#### Detecting Lanes (Test Case 1)
 <img src="/showcase/DL_test1.gif" width="200%">
+
+#### Detecting Lanes (Test Case 2)
 <img src="/showcase/DL_test2.gif" width="200%">
 
 
