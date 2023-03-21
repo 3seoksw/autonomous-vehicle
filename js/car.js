@@ -4,7 +4,7 @@ const FRICTION = 0.05
 const ANGLE_DIF = 0.03
 
 class Car {
-    constructor(x, y, width, height, controlType, maxSpeed = 3) {
+    constructor(x, y, width, height, controlType, maxSpeed = 3, rayCount = 5) {
         this.x = x
         this.y = y
         this.width = width
@@ -24,8 +24,8 @@ class Car {
         this.useBrain = controlType == "AI"
 
         if (controlType != "DUMMY") {
-            this.sensor = new Sensor(this)
-            this.brain = new NeuralNetwork([this.sensor.rayCount + 1, 7, 4])
+            this.sensor = new Sensor(this, rayCount)
+            this.brain = new NeuralNetwork([6, 7, 4])
         }
         this.controls = new Controls(controlType)
     }
