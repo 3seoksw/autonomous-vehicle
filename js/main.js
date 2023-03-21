@@ -49,7 +49,7 @@ for (let i = 0; i < NUMBER_OF_CARS; i++) {
     const LANE_NUMBER = Math.floor(Math.random() * 3)
     const LANE_NUMBER_T = Math.floor(Math.random() * 5)
 
-    const Y_COORD = i * (-100) - 100
+    const Y_COORD = i * (-200) - 100
     const Y_COORD_T = i * (-100) - 100
 
     traffic.push(new Car(road.getLaneCentre(LANE_NUMBER), Y_COORD, 30, 50, "DUMMY", 2))
