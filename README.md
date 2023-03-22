@@ -14,8 +14,17 @@ In this project, autonomous vehicle will be built on 2D space using neural netwo
     - [Get Intersection](#get-intersection)
 
 ### Introduction 
-In order to train a car how to drive itself, a neural network is required. The network is consists of three layers which are input layer, hidden layer 1, and output layer.  
+This is project is not only about building autonomous vehicle making it not to crash towards road borders and traffic, but also about make the car to adapt to a new environment or rules using predecented trained neural network. Main idea is to build a neural network consists of three layers: layer 1; input layer, 2; hidden layer, 3; output layer.  
+Input layer will be fed with the offsets of the ray sensors of the car showing the distance between the car and the obstacle in the range of [0, 1].  
+Hidden layer will take the offset values from input layer and calculate the result.  
+Then the result will be passed to output layer. The values of the output layer will determine whether to move forward, left, right or backward which means output layer will directly control the car and the objective is to drive safely.  
 
+How neural network is fed and trained will be discussed in [neural network](#neural-network) section.
+
+### Neural Network
+As explained in the [introduction](#introduction), the network is consists of three layers which are input layer, hidden layer 1, and output layer.  
+
+<!--TODO: modify nn img with 6 inputs-->
 ![NN Image](/imgs/nn.png)
 
 By calculating the randomized parameters which are weights and biases for each nodes, output layer will return an action either move forward, left, right, or reverse. Repeating the following procedure and remembering the previous result will eventually be trained.
