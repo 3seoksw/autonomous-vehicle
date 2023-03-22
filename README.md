@@ -7,8 +7,10 @@ In this project, autonomous vehicle will be built on 2D space using neural netwo
 
 ### Table of Contents
 - [Introduction](#introduction)
-- [Showcase](#showcase)
 - [Objectives](#objectives)
+    - [Sensor](#sensor)
+    - [Neural Network](#neural-network)
+- [Showcase](#showcase)
 - [Algorithms](#algorithms)
     - [Linear Interpolation](#linear-interpolation)
     - [Get Intersection](#get-intersection)
@@ -21,8 +23,13 @@ Then the result will be passed to output layer. The values of the output layer w
 
 How neural network is fed and trained will be discussed in [neural network](#neural-network) section.
 
-### Neural Network
-As explained in the [introduction](#introduction), the network is consists of three layers which are input layer, hidden layer 1, and output layer.  
+### Objectives
+Using [getIntersection() function](#get-intersection), we can get the offset between the given two points, which in this case are polynomial of the car and the obstacle such as points of road borders or traffic.
+#### Sensor
+
+#### Neural Network
+As explained in the [introduction](#introduction), the network is consists of three layers which are input layer, hidden layer, and output layer.  
+
 
 <!--TODO: modify nn img with 6 inputs-->
 ![NN Image](/imgs/nn.png)
