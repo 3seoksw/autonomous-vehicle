@@ -24,8 +24,11 @@ Then the result will be passed to output layer. The values of the output layer w
 How neural network is fed and trained will be discussed in [neural network](#neural-network) section.
 
 ### Objectives
-Using [getIntersection() function](#get-intersection), we can get the offset between the given two points, which in this case are polynomial of the car and the obstacle such as points of road borders or traffic.
+Using [getIntersection() function](#get-intersection), we can get the offset between the given two points, which in this case are polynomial of the car and the obstacle such as points of road borders or traffic.  
+For this, sensors and neural network should interact closely.
+
 #### Sensor
+Each cars that will be tested are equipped with ray sensors which its job is to detect obstacle and find an offset. 
 
 #### Neural Network
 As explained in the [introduction](#introduction), the network is consists of three layers which are input layer, hidden layer, and output layer.  
