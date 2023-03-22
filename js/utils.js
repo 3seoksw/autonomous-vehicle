@@ -4,9 +4,9 @@ function lerp(A, B, t) {
 
 /** Between two lines, check if there's an intersection */
 function getIntersection(a, b, c, d) {
-    const tNominator = (d.y - c.y) * (a.x - c.x) - (a.y - c.y) * (d.x - c.x)
-    const uNominator = (c.y - a.y) * (a.x - b.x) - (a.y - b.y) * (c.x - a.x)
-    const denominator = (b.y - a.y) * (d.x - c.x) - (d.y - c.y) * (b.x - a.x)
+    const tNominator = (d.x - c.x) * (a.y - c.y) - (d.y - c.y) * (a.x - c.x)
+    const uNominator = (c.y - a.y) * (a.x - b.x) - (c.x - a.x) * (a.y - b.y)
+    const denominator = (d.y - c.y) * (b.x - a.x) - (d.x - c.x) * (b.y - a.y)
 
     if (denominator != 0) {
         const t = tNominator / denominator
