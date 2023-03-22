@@ -8,7 +8,7 @@ function getIntersection(a, b, c, d) {
     const uNominator = (c.y - a.y) * (a.x - b.x) - (a.y - b.y) * (c.x - a.x)
     const denominator = (b.y - a.y) * (d.x - c.x) - (d.y - c.y) * (b.x - a.x)
 
-    if (bottom != 0) {
+    if (denominator != 0) {
         const t = tNominator / denominator
         const u = uNominator / denominator
 
