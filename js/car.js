@@ -1,10 +1,10 @@
 const ACCELERATION = 0.2
-const MAX_SPEED = 3
+const MAX_SPEED = 8
 const FRICTION = 0.05 
 const ANGLE_DIF = 0.03
 
 class Car {
-    constructor(x, y, width, height, controlType, maxSpeed = 3) {
+    constructor(x, y, width, height, controlType, maxSpeed = 3, rayCount = 5) {
         this.x = x
         this.y = y
         this.width = width
@@ -16,7 +16,7 @@ class Car {
         this.friction = FRICTION
         this.angle = 0
         this.damaged = false
-        this.onLane = false
+        this.laneDetection = false
 
         this.distance = 0
         this.score = 0
@@ -24,13 +24,13 @@ class Car {
         this.useBrain = controlType == "AI"
 
         if (controlType != "DUMMY") {
-            this.sensor = new Sensor(this)
-            this.brain = new NeuralNetwork([this.sensor.rayCount, 6, 4])
+            this.sensor = new Sensor(this, rayCount)
+            this.brain = new NeuralNetwork([6, 7, 4])
         }
         this.controls = new Controls(controlType)
     }
 
-    update(roadBorders, traffic, lanes) {
+    update(roadBorders, traffic, lanes, laneDetection = false) {
         if (!this.damaged) {
             this.#move()
             this.polygon = this.#createPolygon()
@@ -40,6 +40,20 @@ class Car {
         if (this.sensor) {
             this.sensor.update(roadBorders, traffic, lanes)
             const offsets = this.sensor.readings.map((s) => s == null ? 0 : 1 - s.offset)
+
+            if (laneDetection) {
+                this.laneDetection = laneDetection
+                let detection = 0
+
+                if (Object.keys(this.sensor.detecting).length !== 0) {
+                    detection = 2 * this.sensor.detecting.offset - 1
+                    if (detection < 0) {
+                        detection = -detection
+                    }
+                }
+
+                offsets.push(detection)
+            }
             const outputs = NeuralNetwork.feedForward(offsets, this.brain)
 
             if (this.useBrain) {

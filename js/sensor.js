@@ -1,7 +1,7 @@
 class Sensor {
-    constructor(car) {
+    constructor(car, rayCount = 5) {
         this.car = car
-        this.rayCount = 5
+        this.rayCount = rayCount
         this.rayLength = 150
         this.raySpread = Math.PI / 2
 
@@ -90,7 +90,7 @@ class Sensor {
     }
 
     #detectLanes(lanes) {
-        let violates = []
+        let violates = {}
 
         for (let i = 0; i < lanes.length; i++) {
             const violate = getIntersection(
@@ -100,8 +100,8 @@ class Sensor {
                 lanes[i][1]
             )
 
-            if (violate && !violates.includes(violate)) {
-                violates.push(violate)
+            if (violate) {
+                violates = violate
             }
         }
         return violates
@@ -111,7 +111,7 @@ class Sensor {
         this.#castRays()
         this.readings = []
         this.#readFront()
-        this.detecting = []
+        this.detecting = {}
 
         for (let i = 0; i < this.rays.length; i++) {
             this.readings.push(this.#getReading(this.rays[i], roadBorders, traffic))
@@ -142,18 +142,18 @@ class Sensor {
             ctx.stroke()
         }
             
-        // Front Sensor
-        ctx.beginPath()
-        ctx.lineWidth = 3
-        ctx.strokeStyle = "green"
-        ctx.moveTo(this.front[0].x, this.front[0].y)
-        ctx.lineTo(this.front[1].x, this.front[1].y)
-        ctx.stroke()
+        if (this.car.laneDetection) {
+            // Front Sensor
+            ctx.beginPath()
+            ctx.lineWidth = 3
+            ctx.strokeStyle = "green"
+            ctx.moveTo(this.front[0].x, this.front[0].y)
+            ctx.lineTo(this.front[1].x, this.front[1].y)
+            ctx.stroke()
 
-        // Violating Lane Point
-        if (this.detecting[0]) {
+            // Violating Lane Point
             ctx.fillStyle = "red"
-            ctx.fillRect(this.detecting[0].x, this.detecting[0].y, 6, 6)
+            ctx.fillRect(this.detecting.x, this.detecting.y, 6, 6)
             ctx.fill()
         }
     }
