@@ -1,4 +1,4 @@
-# Self-Driving Car
+# TODO: Make Title
 
 ### Abstract 
 As the growth of a self-driving car (autonomous vehicle) industry, building an agent which can eventually to be able to drive itself will stimulate the understanding of basic autonomous vehicle and machine learning concepts.  
@@ -7,13 +7,17 @@ In this project, autonomous vehicle will be built on 2D space using neural netwo
 
 ### Table of Contents
 - [Introduction](#introduction)
+- [Showcase](#showcase)
 - [Objectives](#objectives)
     - [Sensor](#sensor)
     - [Neural Network](#neural-network)
-- [Showcase](#showcase)
 - [Algorithms](#algorithms)
     - [Linear Interpolation](#linear-interpolation)
     - [Get Intersection](#get-intersection)
+- [Experiments](#experiments)
+    - [Methods Used for Comparison](#methods-used-for-comparison)
+    - [Transferring the Neural Network](#transferring-the-neural-network) 
+    - [Overall Results](#overall-results)
 
 ### Introduction 
 This is project is not only about building autonomous vehicle making it not to crash towards road borders and traffic, but also about make the car to adapt to a new environment or rules using predecented trained neural network. Main idea is to build a neural network consists of three layers: layer 1; input layer, 2; hidden layer, 3; output layer.  
@@ -109,5 +113,12 @@ $$
 
 By using $\text{equation 5}$, we can get $t$, noting denominator of $t$ cannot be 0. $t$ can be expressed as an offset between the given two points with a range of $[0, 1]$. Steps above are coded in `/js/utils.js`.
 
+### Experiments
+Test will be conducted by running several generations of the cars so that it drives itself eventually. Then the trained neural network will be transferred to a new environment where it has 5 lanes and required not to cross the lanes.
 
+#### Methods Used for Comparison
+
+#### Transferring the Neural Network
+
+#### Overall Results
 <!--Every nodes are fully connected and have its' own weights and biases. These parameters are initially randomized then will be modified by the previous generation. Every generation, the neural network will be mutated by adjusting the weights and biases resulting the car to be trained.-->
