@@ -7,14 +7,17 @@
         <link href="style.css" rel="stylesheet">
     </head>
     <body>
+        <canvas id="networkCanvas"></canvas>
         <canvas id="carCanvas"></canvas>
 
         <div id="verticalBtns">
             <button onclick="save()">💾</button>
             <button onclick="discard()">🗑️</button>
+            <button onclick="pass()">🎫</button>
         </div>
-            
-        <canvas id="networkCanvas"></canvas>
+
+        <canvas id="carCanvasT"></canvas>
+        <canvas id="networkCanvasT"></canvas>
 
         <script src="js/visualizer.js"></script>
         <script src="js/network.js"></script>
