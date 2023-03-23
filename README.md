@@ -28,14 +28,27 @@ Using [getIntersection() function](#get-intersection), we can get the offset bet
 For this, sensors and neural network should interact closely.
 
 #### Sensor
-Each cars that will be tested are equipped with ray sensors which its job is to detect obstacle and find an offset. 
+Each cars that will be tested are equipped with ray sensors which its job is to detect obstacles and find an offset. As described, offset will be in the range of $[0, 1]$, showing that close to 0 means it's getting closer and close to 1 means it's getting far.  
+Main algorithm for finding the offset is by using [linear interpolation](#linear-interpolation) and the details will be discussed thoroughly in the followed section.
 
 #### Neural Network
 As explained in the [introduction](#introduction), the network is consists of three layers which are input layer, hidden layer, and output layer.  
 
-
 <!--TODO: modify nn img with 6 inputs-->
 ![NN Image](/imgs/nn.png)
+
+As conventional neural network, the following network works the same way. The following is the equation showing how the output layer returns values.  
+
+
+<!--TODO: Modify NN Calc.-->
+$$
+\begin{align}
+    \text{Given i, showing i-th input,} \\
+    H_i = v_i \times w_i \\
+    O_i = H_i + b_i \\
+    = v_i \times w_i + b_i
+\end{align}
+$$
 
 By calculating the randomized parameters which are weights and biases for each nodes, output layer will return an action either move forward, left, right, or reverse. Repeating the following procedure and remembering the previous result will eventually be trained.
 
