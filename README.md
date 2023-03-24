@@ -59,14 +59,17 @@ W_1 = \begin{bmatrix}
         w_{00}^1 & \dots & w_{50}^1 \\
         \vdots & \ddots & \vdots \\
         w_{06}^1 & \dots & w_{56}^1
-    \end{bmatrix} \\\
+    \end{bmatrix} \\
+$$
 
+$$
 B_1 = 
 \begin{bmatrix}
     b_0^1 \\
     \vdots \\
     b_6^1
 \end{bmatrix} \\
+$$
 
 \begin{align}
     H &= I \times W_1 + B_1 \\
