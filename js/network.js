@@ -68,6 +68,7 @@ class Level {
                 sum += level.inputs[j] * level.weights[j][i]
             }
 
+            //TODO: consider which activation function would be better
             const value = sigmoid(sum + level.biases[i])
             if (value >= 0.5) {
                 level.outputs[i] = 1
@@ -75,12 +76,6 @@ class Level {
             else {
                 level.outputs[i] = 0
             }
-            //if (sum > level.biases[i]) {
-            //    level.outputs[i] = 1
-            //}
-            //else {
-            //    level.outputs[i] = 0
-            //}
         }
 
         return level.outputs
