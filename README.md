@@ -38,19 +38,19 @@ Main algorithm for finding the offset is by using [linear interpolation](#linear
 #### Neural Network
 As explained in the [introduction](#introduction), the network is consists of three layers which are input layer, hidden layer, and output layer.  
 
-<!--TODO: modify nn img with 6 inputs-->
-![NN Image](/imgs/nn.png)
+![NN Image](/imgs/NN_label.png)
 
-As conventional neural network, the following network works the same way. The following is the equation showing how the output layer returns values.  
+Input layer is fed with offsets, the distance between the car and the obstacle in the range of $[0, 1]$.  
+Hidden layer is to calculate output values in the range of $[0, 1]$ using input values. After the output is calculated using weights and biases from hidden layer for each level, the output consider to move forward, left, right, or reverse.  
 
+As conventional neural network, the following network works the same way. The following is the equation showing how the output layer returns values. ($w_{nm}$)
 
-<!--TODO: Modify NN Calc.-->
+<!--TODO: Modify  Explain the notations-->
 $$
 \begin{align}
-    \text{Given i, showing i-th input,} \\
-    H_i = v_i \times w_i \\
-    O_i = H_i + b_i \\
-    = v_i \times w_i + b_i
+    h_m &= \sum_{n=0}^{6}{(i_n \times w_{i_m h_m})} + b_{i_n h_m} \\
+    o_k &= \sum_{m=0}^{7}{(h_m \times w_{h_m o_k})} + b_{h_m o_k} \\
+    &= \sum_{m=0}^{7}{()} + b_{h_m o_k}
 \end{align}
 $$
 
