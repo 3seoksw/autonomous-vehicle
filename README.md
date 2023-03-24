@@ -51,7 +51,9 @@ I = \begin{bmatrix}
     i_0 \\
     \vdots \\
     i_5
-    \end{bmatrix} \\
+    \end{bmatrix} 
+
+\newline
 
 W_1 = \begin{bmatrix}
         w_{00}^1 & \dots & w_{50}^1 \\
