@@ -47,19 +47,17 @@ As conventional neural network, the following network works the same way. The fo
 
 <!--TODO: Modify  Explain the notations-->
 $$
-I = 
-\begin{bmatrix}
+I = \begin{bmatrix}
     i_0 \\
     \vdots \\
     i_5
-\end{bmatrix} \\
+    \end{bmatrix} \\
 
-W_1 =
-\begin{bmatrix}
-    w_{00}^1 & \dots & w_{50}^1 \\
-    \vdots & \ddots & \vdots \\
-    w_{06}^1 & \dots & w_{56}^1
-\end{bmatrix} \\
+W_1 = \begin{bmatrix}
+        w_{00}^1 & \dots & w_{50}^1 \\
+        \vdots & \ddots & \vdots \\
+        w_{06}^1 & \dots & w_{56}^1
+    \end{bmatrix} \\
 
 B_1 = 
 \begin{bmatrix}
