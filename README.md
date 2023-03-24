@@ -71,6 +71,7 @@ B_1 =
 \end{bmatrix} \\
 $$
 
+$$
 \begin{align}
     H &= I \times W_1 + B_1 \\
     &= \begin{bmatrix}
@@ -96,7 +97,9 @@ $$
     h_6
     \end{bmatrix}
 \end{align} \\
+$$
 
+$$
 \begin{align}
     h_m &= \sum_{n=0}^{5}{(i_n \times w_{nm}^1)} + b_{m}^1 \\
     TODO: below
