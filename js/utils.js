@@ -45,6 +45,10 @@ function sigmoid(x) {
     return 1 / (1 + Math.exp(-x))
 }
 
+function ReLU(x) {
+    return Math.max(x, 0)
+}
+
 function getRGBA(value) {
     const alpha = Math.abs(value)
     const R = value < 0 ? 0 : 255
