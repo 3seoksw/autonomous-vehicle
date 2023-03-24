@@ -47,8 +47,56 @@ As conventional neural network, the following network works the same way. The fo
 
 <!--TODO: Modify  Explain the notations-->
 $$
+I = 
+\begin{bmatrix}
+    i_0 \\
+    \vdots \\
+    i_5
+\end{bmatrix} \\
+
+W_1 =
+\begin{bmatrix}
+    w_{00}^1 & \dots & w_{50}^1 \\
+    \vdots & \ddots & \vdots \\
+    w_{06}^1 & \dots & w_{56}^1
+\end{bmatrix} \\
+
+B_1 = 
+\begin{bmatrix}
+    b_0^1 \\
+    \vdots \\
+    b_6^1
+\end{bmatrix} \\
+
 \begin{align}
-    h_m &= \sum_{n=0}^{6}{(i_n \times w_{i_m h_m})} + b_{i_n h_m} \\
+    H &= I \times W_1 + B_1 \\
+    &= \begin{bmatrix}
+        i_0 \\
+        \vdots \\
+        i_5
+    \end{bmatrix}
+    \times
+    \begin{bmatrix}
+        w_{00}^1 & \dots & w_{50}^1 \\
+        \vdots & \ddots & \vdots \\
+        w_{06}^1 & \dots & w_{56}^1
+    \end{bmatrix}
+    +
+    \begin{bmatrix}
+        b_0^1 \\
+        \vdots \\
+        b_6^1
+    \end{bmatrix} \\
+    &= \begin{bmatrix}
+    h_0 \\
+    \vdots \\
+    h_6
+    \end{bmatrix}
+\end{align} \\
+
+\begin{align}
+    h_m &= \sum_{n=0}^{5}{(i_n \times w_{nm}^1)} + b_{m}^1 \\
+    TODO: below
     o_k &= \sum_{m=0}^{7}{(h_m \times w_{h_m o_k})} + b_{h_m o_k} \\
     &= \sum_{m=0}^{7}{()} + b_{h_m o_k}
 \end{align}
