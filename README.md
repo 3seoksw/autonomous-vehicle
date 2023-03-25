@@ -43,7 +43,8 @@ As explained in the [introduction](#introduction), the network is consists of th
 Input layer is fed with offsets, the distance between the car and the obstacle in the range of $[0, 1]$.  
 Hidden layer is to calculate output values in the range of $[0, 1]$ using input values. After the output is calculated using weights and biases from hidden layer for each level, the output consider to move forward, left, right, or reverse.  
 
-As conventional neural network, the following network works the same way. The following is the equation showing how the output layer returns values. ($w_{nm}$)
+As conventional neural network, the following network works the same way. The following is the equation showing how the output layer returns values.  
+Given input matrix $I$, weight matrix for level 1 $W_1$, weight matrix for level 2 $W_2$, bias matrix for level 1 $B_1$, bias matrix for level 2 $B_2$, hidden value matrix for hidden layer $H$, and output matrix $O$, values are as follows: 
 
 <!--TODO: Modify  Explain the notations-->
 $$
@@ -63,6 +64,14 @@ W_1 = \begin{bmatrix}
 $$
 
 $$
+W_2 = \begin{bmatrix}
+        w_{00}^2 & \dots & w_{60}^2 \\
+        \vdots & \ddots & \vdots \\
+        w_{03}^2 & \dots & w_{63}^2
+    \end{bmatrix} \\
+$$
+
+$$
 B_1 = 
 \begin{bmatrix}
     b_0^1 \\
@@ -72,7 +81,27 @@ B_1 =
 $$
 
 $$
-\begin{align}
+B_2= 
+\begin{bmatrix}
+    b_0^2 \\
+    \vdots \\
+    b_3^2
+\end{bmatrix} \\
+$$
+
+$$
+O=
+\begin{bmatrix}
+    o_0 \\
+    \vdots \\
+    o_3
+\end{bmatrix} \\
+$$
+
+Hidden values from hidden layer can be calculated as follows:
+
+$$
+\begin{align*}
     H &= I \times W_1 + B_1 \\
     &= \begin{bmatrix}
         i_0 \\
@@ -96,16 +125,70 @@ $$
     \vdots \\
     h_6
     \end{bmatrix}
-\end{align} \\
+\end{align*} \\
 $$
 
 $$
-\begin{align}
-    h_m &= \sum_{n=0}^{5}{(i_n \times w_{nm}^1)} + b_{m}^1 \\
-    TODO: below
-    o_k &= \sum_{m=0}^{7}{(h_m \times w_{h_m o_k})} + b_{h_m o_k} \\
-    &= \sum_{m=0}^{7}{()} + b_{h_m o_k}
-\end{align}
+\therefore h_m = \sum_{n=0}^{5}{(i_n \times w_{nm}^1)} + b_{m}^1 \\
+$$
+
+Output values $o_0, o_1, o_2, o_3$ from output matrix $O$ denotes whether to move forward, left, right, or reverse respectively.
+
+$$
+\begin{align*}
+    O &= 
+    \begin{bmatrix}
+        o_0 \\
+        \vdots \\
+        o_3
+    \end{bmatrix} \\
+    &= \begin{bmatrix}
+        \text{forward} \\
+        \text{left} \\
+        \text{right} \\
+        \text{reverse}
+    \end{bmatrix}
+\end{align*}
+$$
+
+Since the values are in the form of 0 or 1, output values indicate and can be calculated as follows: 
+
+$$
+\forall k, \text{where $k$} \in \{ 0, 1, 2, 3 \}, \\
+o_k = 1: \text{move} \\
+o_k = 0: \text{stay}
+$$
+
+$$
+\begin{align*}
+    O &= H \times W_2 + B_2 \\
+    &= \begin{bmatrix}
+    h_0 \\
+    \vdots \\
+    h_6
+    \end{bmatrix}
+    \times 
+    \begin{bmatrix}
+        w_{00}^2 & \dots & w_{60}^2 \\
+        \vdots & \ddots & \vdots \\
+        w_{03}^2 & \dots & w_{63}^2
+    \end{bmatrix} 
+    +
+    \begin{bmatrix}
+        b_0^2 \\
+        \vdots \\
+        b_3^2
+    \end{bmatrix} \\
+    &= \begin{bmatrix}
+        o_0 \\
+        \vdots \\
+        o_3
+    \end{bmatrix} \\
+\end{align*} \\
+$$
+
+$$
+\therefore o_k = \sum_{m=0}^{7}{(h_k \times w_{mk}^2)} + b_{k}^2 \\
 $$
 
 By calculating the randomized parameters which are weights and biases for each nodes, output layer will return an action either move forward, left, right, or reverse. Repeating the following procedure and remembering the previous result will eventually be trained.
