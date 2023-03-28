@@ -20,7 +20,7 @@ In this project, autonomous vehicle will be built on 2D space using neural netwo
     - [Overall Results](#overall-results)
 
 ### Introduction 
-This is project is not only about building autonomous vehicle making it not to crash towards road borders and traffic, but also about make the car to adapt to a new environment or rules using predecented trained neural network. Main idea is to build a neural network consists of three layers: layer 1; input layer, 2; hidden layer, 3; output layer.  
+This project is not only about building autonomous vehicle making it not to crash towards road borders and traffic, but also about make the car to adapt to a new environment or rules using predecented trained neural network. Main idea is to build a neural network consists of three layers: layer 1; input layer, 2; hidden layer, 3; output layer.  
 Input layer will be fed with the offsets of the ray sensors of the car showing the distance between the car and the obstacle in the range of [0, 1].  
 Hidden layer will take the offset values from input layer and calculate the result.  
 Then the result will be passed to output layer. The values of the output layer will determine whether to move forward, left, right or backward which means output layer will directly control the car and the objective is to drive safely.  
@@ -210,7 +210,7 @@ Hidden layer will use the input information then use the activation function (he
 Similarly, output layer will apply the activation function using the hidden layer's value then returns an action whether to move forward, left, or right.
 
 #### Linear Interpolation
-[Linear interpolation](https://en.wikipedia.org/wiki/Linear_interpolation) is a method of curve fitting using linear polynomials to construct new data points within the range of a discrete set of know data points.  
+[Linear interpolation](https://en.wikipedia.org/wiki/Linear_interpolation) is a method of curve fitting using linear polynomials to construct new data points within the range of a discrete set of known data points.  
 Say, given two points, $P_A(a)$ and $P_B(b)$ on one dimensional space and we want to find a point where its located between $P_A$ and $P_B$ at m:n. Then we can use linear interpolation as follows:
 
 $$a + (b - a) \times \frac{m}{m + n}$$
