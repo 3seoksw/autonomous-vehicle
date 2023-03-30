@@ -22,13 +22,15 @@ const roadT = new Road(carCanvasT.width / 2, carCanvasT.width * 0.9, 5)
 
 // Cars
 const N = 100
-const N_T = 200
+const N_T = 100
 const cars = generateCars(N)
 const carsT = generateCarsT(N_T)
 
 // Leading Car
 let leadingCar = cars[0]
 let leadingCarT = carsT[0]
+    
+localStorage.setItem("counter", JSON.stringify(leadingCar.onLaneCount))
 
 if (localStorage.getItem("optimal")) {
     for (let i = 0; i < cars.length; i++) {
@@ -149,6 +151,8 @@ function animateT(time) {
     networkCanvasT.height = window.innerHeight
     
     leadingCarT = fitnessFunc(carsT)
+
+    localStorage.setItem("counter", JSON.stringify(leadingCarT.onLaneCount))
 
     carCtxT.save()
     carCtxT.translate(0, -leadingCarT.y + carCanvasT.height * 0.7)

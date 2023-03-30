@@ -58,13 +58,13 @@ function getRGBA(value) {
 }
 
 function findLeading(cars) {
-    const WEIGHT = 0.9
+    const WEIGHT = 0.8
     const minY = cars.find(car => car.y == Math.min(...cars.map(car => car.y))).y
     cars.forEach(car => car.score += (car.y / minY) * WEIGHT)
 }
 
 function findShortest(cars) {
-    const WEIGHT = 0.1
+    const WEIGHT = 0.2
     const longestDist = cars.find(car => car.distance == Math.max(...cars.map(car => car.distance))).distance
     cars.forEach(car => car.score += car.distance / longestDist * WEIGHT)
 }

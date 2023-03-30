@@ -20,6 +20,8 @@ class Car {
 
         this.distance = 0
         this.score = 0
+        this.onLane = false
+        this.onLaneCount = 0
 
         this.useBrain = controlType == "AI"
 
@@ -35,6 +37,9 @@ class Car {
             this.#move()
             this.polygon = this.#createPolygon()
             this.damaged = this.#assessDamage(roadBorders, traffic)
+        }
+        else {
+            this.score = -1
         }
 
         if (this.sensor) {

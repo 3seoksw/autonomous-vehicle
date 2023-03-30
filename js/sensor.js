@@ -91,6 +91,7 @@ class Sensor {
 
     #detectLanes(lanes) {
         let violates = {}
+        let checker = false
 
         for (let i = 0; i < lanes.length; i++) {
             const violate = getIntersection(
@@ -102,8 +103,20 @@ class Sensor {
 
             if (violate) {
                 violates = violate
+                checker = true
             }
         }
+
+        if (checker) {
+            if (this.car.onLane == false) {
+                this.car.onLaneCount++
+                this.car.onLane = true
+            }
+        }
+        else {
+            this.car.onLane = false
+        }
+
         return violates
     }
 
