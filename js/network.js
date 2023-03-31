@@ -69,6 +69,13 @@ class Level {
             }
 
             //TODO: consider which activation function would be better
+            //const value = ReLU(sum + level.biases[i])
+            //if (value > 0.5) {
+            //    level.outputs[i] = 1
+            //}
+            //else {
+            //    level.outputs[i] = 0
+            //}
             const value = sigmoid(sum + level.biases[i])
             if (value >= 0.5) {
                 level.outputs[i] = 1
