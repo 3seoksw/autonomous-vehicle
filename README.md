@@ -1,4 +1,4 @@
-# TODO: Make Title
+# Applying Transfer Learning on Liner Interpolation based Autonomous Vehicle
 
 ### Abstract 
 As the growth of a self-driving car (autonomous vehicle) industry, building an agent which can eventually to be able to drive itself will stimulate the understanding of basic autonomous vehicle and machine learning concepts.  
@@ -20,7 +20,9 @@ In this project, autonomous vehicle will be built on 2D space using neural netwo
     - [Overall Results](#overall-results)
 
 ### Introduction 
-This project is not only about building autonomous vehicle making it not to crash towards road borders and traffic, but also about make the car to adapt to a new environment or rules using predecented trained neural network. Main idea is to build a neural network consists of three layers: layer 1; input layer, 2; hidden layer, 3; output layer.  
+This project is not only about building autonomous vehicle making it not to crash towards road borders and traffic, 
+but also about making the car to adapt to a new environment or rules using predecented trained neural network. 
+Main idea is to build a neural network consists of three layers: layer 1; input layer, 2; hidden layer, 3; output layer.  
 Input layer will be fed with the offsets of the ray sensors of the car showing the distance between the car and the obstacle in the range of [0, 1].  
 Hidden layer will take the offset values from input layer and calculate the result.  
 Then the result will be passed to output layer. The values of the output layer will determine whether to move forward, left, right or backward which means output layer will directly control the car and the objective is to drive safely.  
@@ -253,9 +255,18 @@ By using $\text{equation 5}$, we can get $t$, noting denominator of $t$ cannot b
 ### Experiments
 Test will be conducted by running several generations of the cars so that it drives itself eventually. Then the trained neural network will be transferred to a new environment where it has 5 lanes and required not to cross the lanes.
 
-#### Methods Used for Comparison
-
 #### Transferring the Neural Network
+Transfer learning will be conducted by the pretrained neural network from the preceded training.
+Since the objective for the transfer learning is to detect lane as well as other obstacles described above, 
+adjusting the sensor and function for it is required.  
+Normally the ray sensor is detecting the offset between the car and an obstacle, 
+but for this case, one ray sensor from the middle will be used for detecting the lane. 
+The reason for this is because to avoid centred ray sensor is the best to detect an obstacle right in the middle.   
+However simply use the ray sensor and apply it to detect a lane is not a solution for it.
+It is required to adjust the way the offset between the car and an obstacle. 
+
+<!-- TODO: add lane detection modification img -->
+<img src="" width="200%">
 
 #### Overall Results
 <!--Every nodes are fully connected and have its' own weights and biases. These parameters are initially randomized then will be modified by the previous generation. Every generation, the neural network will be mutated by adjusting the weights and biases resulting the car to be trained.-->
